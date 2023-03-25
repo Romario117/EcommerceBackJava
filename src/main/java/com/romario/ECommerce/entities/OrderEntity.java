@@ -14,7 +14,7 @@ public class OrderEntity {
     private Long idOrder;
 
     @Column(name = "customer_id")
-    private Long idCustomer;
+    private CustomerEntity idCustomer;
 
     @Column(name = "order_date")
     private Date orderDate;
@@ -33,11 +33,11 @@ public class OrderEntity {
         this.idOrder = idOrder;
     }
 
-    public Long getIdCustomer() {
+    public CustomerEntity getIdCustomer() {
         return idCustomer;
     }
 
-    public void setIdCustomer(Long idCustomer) {
+    public void setIdCustomer(CustomerEntity idCustomer) {
         this.idCustomer = idCustomer;
     }
 
