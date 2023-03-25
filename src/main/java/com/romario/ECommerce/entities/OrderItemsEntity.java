@@ -12,9 +12,9 @@ public class OrderItemsEntity {
     private Long idOrderItem;
 
     @Column(name = "order_id")
-    private Long idOrder;
+    private OrderEntity idOrder;
     @Column(name = "product_id")
-    private Long idProduct;
+    private ProductEntity idProduct;
     private Long quantity;
     private Double price;
 
@@ -29,19 +29,19 @@ public class OrderItemsEntity {
         this.idOrderItem = idOrderItem;
     }
 
-    public Long getIdOrder() {
+    public OrderEntity getIdOrder() {
         return idOrder;
     }
 
-    public void setIdOrder(Long idOrder) {
+    public void setIdOrder(OrderEntity idOrder) {
         this.idOrder = idOrder;
     }
 
-    public Long getIdProduct() {
+    public ProductEntity getIdProduct() {
         return idProduct;
     }
 
-    public void setIdProduct(Long idProduct) {
+    public void setIdProduct(ProductEntity idProduct) {
         this.idProduct = idProduct;
     }
 
