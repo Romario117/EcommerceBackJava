@@ -1,6 +1,9 @@
 package com.romario.ECommerce.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import java.util.Date;
 
@@ -13,7 +16,10 @@ public class OrderEntity {
     @Column(name = "order_id")
     private Long idOrder;
 
-    @Column(name = "customer_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name ="customer_id" , nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JsonIgnore
     private CustomerEntity idCustomer;
 
     @Column(name = "order_date")

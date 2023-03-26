@@ -1,6 +1,9 @@
 package com.romario.ECommerce.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 @Table(name = "order_items")
@@ -11,9 +14,16 @@ public class OrderItemsEntity {
     @Column(name = "order_item_id")
     private Long idOrderItem;
 
-    @Column(name = "order_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name ="order_id" , nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JsonIgnore
     private OrderEntity idOrder;
-    @Column(name = "product_id")
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name ="product_id" , nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JsonIgnore
     private ProductEntity idProduct;
     private Long quantity;
     private Double price;

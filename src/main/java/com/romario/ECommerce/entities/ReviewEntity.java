@@ -1,6 +1,9 @@
 package com.romario.ECommerce.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 @Table(name = "reviews")
@@ -11,10 +14,16 @@ public class ReviewEntity {
     @Column(name = "review_id")
     private Long idReview;
 
-    @Column(name = "customer_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name ="customer_id" , nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JsonIgnore
     private CustomerEntity idCustomer;
 
-    @Column(name = "product_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name ="product_id" , nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JsonIgnore
     private ProductEntity idProduct;
     private Long rating;
     private String review;
