@@ -31,6 +31,13 @@ public class ReviewEntity {
     public ReviewEntity() {
     }
 
+    public ReviewEntity(CustomerEntity idCustomer, ProductEntity idProduct, Long rating, String review) {
+        this.idCustomer = idCustomer;
+        this.idProduct = idProduct;
+        this.rating = rating;
+        this.review = review;
+    }
+
     public Long getIdReview() {
         return idReview;
     }
