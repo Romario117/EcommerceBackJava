@@ -74,7 +74,7 @@ public class ReviewController {
     }
 
     @DeleteMapping("/review/{idReview}")
-    public ResponseEntity<ReviewEntity> deleteComment(@PathVariable("idReview")){
+    public ResponseEntity<ReviewEntity> deleteComment(@PathVariable("idReview") Long id){
         try{
             reviewRepository.deleteById(id);
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
