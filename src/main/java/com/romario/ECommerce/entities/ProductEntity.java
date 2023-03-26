@@ -20,8 +20,16 @@ public class ProductEntity {
     private String urlImage;
     private Long stock;
 
-    ProductEntity(){
+    public ProductEntity(){
 
+    }
+
+    public ProductEntity(String productName, String description, Double price, String urlImage, Long stock) {
+        this.productName = productName;
+        this.description = description;
+        this.price = price;
+        this.urlImage = urlImage;
+        this.stock = stock;
     }
 
     public Long getIdProduct() {
